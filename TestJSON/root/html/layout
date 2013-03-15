@@ -1,0 +1,40 @@
+<!-- begin root/html/layout -->
+<!-- <div id="wrapper" class="[% template.name.replace('\W+', '_') %]"> -->
+
+  <div id="header">
+[% PROCESS header %]
+  </div>
+
+  [% # nasty business required to get the current action name %]
+  [% action_name = [ c.action ] %]
+  [% action_name = action_name.join('').replace('\W+', '_') %]
+
+  <div id="content" class="grid $action_name">
+
+    <div id="top-level">
+      [% INCLUDE messages %]
+      [% IF c.user_exists && user_roles.superuser  %][% INCLUDE admin_toolbar   %][% END %]
+      [% IF c.user_exists && !user_roles.superuser %][% INCLUDE account_toolbar %][% END %]
+      [% IF not c.user_exists %]<div>&nbsp;&nbsp;</div>[% END %]
+    </div>
+
+    [% IF toolbar %][% INCLUDE $toolbar %][% END %]
+
+    <!-- page_title: [% IF page_title %]<h3>$page_title</h3>[% END %] -->
+    <!-- start interface tag -->
+    <div class="interface">
+      [% INCLUDE additional_info %]
+<!-- start content -->
+      [% content %]
+<!-- end content -->
+    </div>
+  </div>
+
+
+  <div id="footer">
+[% PROCESS footer %]
+  </div>
+
+<!-- </div> close wrapper div -->
+<!-- end root/html/layout -->
+

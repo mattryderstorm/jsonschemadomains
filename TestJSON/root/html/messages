@@ -1,0 +1,21 @@
+<div class="feedback_info_container feedback_container" style="display:none; position: absolute">
+  <div class="ui-widget">
+    <div class="ui-state-highlight ui-corner-all" style="padding: 4px"> 
+      <p class="feedback_message_para">
+        <span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+        <span class="feedback_info_msg"></span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="feedback_error_container feedback_container" style="display:none; position: absolute">
+  <div class="ui-widget">
+    <div class="ui-state-error ui-corner-all" style="padding: 4px"> 
+      <p class="feedback_message_para">
+        <span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span> 
+        <span class="feedback_error_msg"></span>
+      </p>
+    </div>
+  </div>
+</div>

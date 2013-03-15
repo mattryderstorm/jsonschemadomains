@@ -1,0 +1,4 @@
+<!-- BEGIN root/html/header -->
+<div class="headerphoto"><!--photo--></div><h1><span class="logo"></span>[% template.title or site.title %]</h1>
+<!-- END root/html/header -->
+

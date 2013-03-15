@@ -1,0 +1,40 @@
+[% # IF show_additional_info || form.has_errors %]
+[% IF show_additional_info %]
+
+<div id="additional_info">
+
+<!--
+  [% IF form.has_errors %]
+  <dl class="info_errors">
+    <dt>There was an error processing the following fields:</dt>
+    [% FOR field IN form.error_field_names %]
+    <dd>$field</dd>
+    [% END %]
+  </dl>
+  [% END %]
+-->
+
+
+  [% IF display_errors.size %]
+  <dl class="info_errors">
+    <dt>There was an error processing this page:</dt>
+    [% FOR error IN display_errors %]
+    <dd>$error</dd>
+    [% END %]
+  </dl>
+  [% END %]
+
+  [% IF display_messages.size %]
+  <div class="info_messages">
+    <ul>
+      [% FOR m IN display_messages %]
+      <li> <strong>[% m %]</strong> </li>
+      [% END %]
+    </ul>
+  </div>
+  [% END %]
+
+</div>
+
+[% END %]
+

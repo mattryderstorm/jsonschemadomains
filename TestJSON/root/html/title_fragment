@@ -1,0 +1,16 @@
+[% IF c.debug AND c.user_exists %]
+[
+  user:
+  [% IF c.user_exists %][% c.user.email %][%END%]
+]
+
+[
+  roles:
+  [% IF user_roles.superuser %][% " superuser" %][%END%]
+  [% IF user_roles.reseller  %][% " reseller"  %][%END%]
+  [% IF user_roles.client    %][% " client"    %][%END%]
+  [% IF user_roles.admin     %][% " admin"     %][%END%]
+]
+[% END %]
+
+[% # c.req.uuid %]

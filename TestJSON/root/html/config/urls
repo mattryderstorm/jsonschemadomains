@@ -1,0 +1,11 @@
+[% base = c.req.base;
+
+  site.url = {
+    base    = c.req.base
+    images  = "/images"
+    img     = "/images"
+  };
+
+   url = site.url;
+-%]
+

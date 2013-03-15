@@ -1,0 +1,36 @@
+[%
+  # This is the main configuration template which is processed before
+  # any other page, by virtue of it being defined as a PRE_PROCESS
+  # template.  This is the place to define any extra template variables,
+  # macros, load plugins, and perform any other template setup.
+
+  IF c.debug;
+    # define a debug() macro directed to Catalyst's log
+    MACRO debug(message) CALL c.log.debug(message);
+  END;
+
+  # define a data structure to hold sitewide data
+  site = {
+    title     => c.req.headers.host,
+    copyright => '',
+  };
+
+  # load up any other configuration items
+  PROCESS config/colours + config/urls;
+
+  # set defaults for variables, etc.
+  # DEFAULT
+  #   message = 'There is no message';
+
+  page = {
+      file     = template.name
+      # title    = template.title
+      # about    = template.about
+      # type     = template.type or 'html'
+      # date     = template.date or template.modtime
+  };
+
+  # PROCESS map
+
+-%]
+

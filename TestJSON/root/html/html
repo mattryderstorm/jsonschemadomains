@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title>[% INCLUDE title_fragment %][% company_name %] [% page_title %]</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  [% IF c.is_superuser %]
+    <link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css"> 
+  [% END %]
+
+  <link rel="stylesheet" type="text/css" href='/js/jquery-ui-1.8/css/smoothness/jquery-ui-1.8.custom.css' />
+  <link rel="stylesheet" type="text/css" href='/css/flexigrid.css' />
+  <link rel="stylesheet" type="text/css" href='/css/default.css' />
+
+  [%- IF style_urls.size > 0 -%]
+  [% FOREACH u IN style_urls %]<link rel="stylesheet" type="text/css" href="[% u %]" />
+  [% END %]
+  [%- END -%]
+
+ <!--[if IE 6]>
+	<link href="/css/ie6.css" type="text/css" rel="stylesheet" />
+	<![endif]-->
+
+ </head>
+ <body>
+
+[% content %]
+
+[%- UNLESS jquery_forbidden -%]
+<script src="/js/jquery/jquery-1.4.2.min.js"></script>
+<script src="/js/jquery.json-2.2.min.js"></script>
+<script src='/js/jquery-ui-1.8/js/jquery-ui-1.8.custom.min.js'></script>
+<script src='/js/jquery.selectbox-1.0/jquery.selectbox-1.0.js'></script>
+<script src='/js/jquery-validate/jquery.validate.pack.js'></script>
+<script src='/js/blockui/jquery.blockUI.js'></script>
+<script src='/js/flexigrid/flexigrid.custom.pack.js'></script>
+<script src='/js/utils.js'></script>
+[%- END -%]
+
+[% IF script_urls.size > 0; FOREACH u IN script_urls; 
+  "<script src='$u'></script>\n";
+END; END; -%]
+
+[% USE JSON %]
+<script type='text/javascript' language='javascript'>
+  var Stash = [% template_json.json %];
+  var Info  = [% feedback_json.json %];
+</script>
+
+ </body>
+</html>
