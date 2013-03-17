@@ -8,4 +8,5 @@ use namespace::autoclean;
 
 BEGIN { extends 'Catalyst::Controller::ActionRole' }
 
+
 1;

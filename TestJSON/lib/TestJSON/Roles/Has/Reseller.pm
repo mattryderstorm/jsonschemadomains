@@ -1,0 +1,18 @@
+package TestJSON::Roles::Has::Reseller;
+
+use Moose::Role;
+
+has reseller => (
+  isa      => 'Object',
+  is       => 'rw',
+  handles  => { reseller_id => 'id' },
+  weak_ref => 1,
+  required => 1,
+);
+
+has reseller_config => (
+  isa => 'Any',
+  is  => 'rw',
+);
+
+1;
